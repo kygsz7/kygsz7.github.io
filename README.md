@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# antalya-cebinde.live
 
-## Getting Started
+[Antalya Cebinde](https://play.google.com/store/apps/details?id=com.antalyaceb.antalya_cebinde)
+uygulamasının tanıtım sitesi. Next.js 16 · Tailwind v4 · statik export · GitHub Pages.
 
-First, run the development server:
+## Adresler
+
+| URL | Kaynak |
+|---|---|
+| `/` | Türkçe tanıtım sayfası |
+| `/en`, `/ru` | İngilizce, Rusça |
+| `/privacy.html`, `/privacy_policy.html` | Gizlilik politikası (aynı içerik) |
+| `/en/privacy`, `/ru/privacy` | Çevrilmiş politika |
+| `/antalya-privacy/` | **Bu repo değil** — ayrı `antalya-privacy` reposu |
+
+> ⚠️ Play Console'a kayıtlı gizlilik politikası URL'i
+> `https://kygsz7.github.io/antalya-privacy` — o ayrı bir repo.
+> **Silme.** Bu repodaki değişiklikler ona dokunmaz.
+
+## Silinmemesi gereken dosyalar
+
+`public/` altındakiler build çıktısına aynen kopyalanır:
+
+| Dosya | Kaybolursa |
+|---|---|
+| `CNAME` | Özel alan adı düşer, site `kygsz7.github.io`'ya döner |
+| `app-ads.txt` | AdMob doğrulaması bozulur |
+| `.nojekyll` | GitHub Pages Jekyll çalıştırır, `_next/` klasörünü yoksayar → **site stilsiz ve JS'siz açılır** |
+
+`.github/workflows/deploy.yml` her yayından önce bunları kontrol eder,
+eksikse deploy'u durdurur.
+
+## Geliştirme
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev            # http://localhost:3000
+
+npm run build          # out/ klasörüne statik HTML
+npx serve out -p 4401  # çıktıyı yerelde dene
+npm run shot           # Playwright ile ekran görüntüsü + konsol hatası kontrolü
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## İçerik nerede
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Tüm metinler tek dosyada: [lib/i18n.ts](lib/i18n.ts) — üç dil yan yana.
+Yeni özellik/ekran eklemek için oradaki dizilere ekle.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Görseller `public/` altında, hepsi WebP:
+- `screenshots/` — uygulama ekranları (Play Store listesinden)
+- `photos/` — Antalya fotoğrafları
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+`main` dalına push → GitHub Actions build alır → Pages'e çıkar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**İlk kurulumda bir kez yapılması gereken:** Settings → Pages → Source
+ayarını **"GitHub Actions"** yap. Şu an "Deploy from a branch" ise site
+hâlâ eski kök dizindeki `index.html`'i sunar.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Kök dizindeki eski dosyalar
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`index.html`, `privacy.html`, `privacy_policy.html`, `CNAME`, `app-ads.txt`
+— sitenin Next.js öncesi hâli. Pages kaynağı "GitHub Actions"a geçene kadar
+yayında olan bunlar; geçişte kesinti olmasın diye duruyorlar.
+Geçiş yapıldıktan ve site doğrulandıktan sonra silinebilirler.
