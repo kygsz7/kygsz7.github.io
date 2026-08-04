@@ -26,7 +26,7 @@ const HERO_LAYERS = [
 ];
 
 /** Galeri bolumundeki ekranlar. Sira, dict.screenCaptions ile eslesir. */
-const SCREENS = ["trip", "languages", "wildlife", "transport", "ancient"];
+const SCREENS = ["trip", "languages", "wildlife", "transport"];
 
 /** Antalya fotograflari — public/photos/ altinda. */
 const PHOTOS = [
@@ -38,7 +38,6 @@ const PHOTOS = [
   "magara-kemer",
   "toroslar",
   "kayalik-sahil",
-  "koy-yuzme",
 ];
 
 /** Ozellik sirasiyla eslesen ikonlar. Emoji kullanilmiyor — SVG. */

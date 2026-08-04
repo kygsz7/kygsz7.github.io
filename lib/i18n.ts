@@ -138,7 +138,6 @@ export const dict: Record<Lang, Dict> = {
       "Türkçe, İngilizce, Rusça",
       "Bölgenin yaban hayatı",
       "Tramvay ve otobüs saatleri",
-      "Antik kentler ve kalıntılar",
     ],
     cta: {
       title: "Antalya'ya gitmeden önce indir",
@@ -259,7 +258,6 @@ export const dict: Record<Lang, Dict> = {
       "Turkish, English, Russian",
       "Wildlife of the region",
       "Tram and bus timetables",
-      "Ancient cities and ruins",
     ],
     cta: {
       title: "Download before you land in Antalya",
@@ -380,7 +378,6 @@ export const dict: Record<Lang, Dict> = {
       "Турецкий, английский, русский",
       "Дикая природа региона",
       "Расписание трамваев и автобусов",
-      "Античные города и руины",
     ],
     cta: {
       title: "Скачайте перед поездкой в Анталью",
