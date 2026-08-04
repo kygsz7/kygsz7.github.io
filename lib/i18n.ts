@@ -26,6 +26,19 @@ export const LANG_NAMES: Record<Lang, string> = {
   ru: "Русский",
 };
 
+/** Dar ekranda tam isimler marka adini satir kirdiriyor. */
+export const LANG_SHORT: Record<Lang, string> = {
+  tr: "TR",
+  en: "EN",
+  ru: "RU",
+};
+
+export const LANG_NAV_LABEL: Record<Lang, string> = {
+  tr: "Dil seçimi",
+  en: "Language",
+  ru: "Выбор языка",
+};
+
 type Feature = { title: string; body: string };
 
 export type Dict = {

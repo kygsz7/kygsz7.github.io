@@ -6,6 +6,8 @@ import {
   CONTACT_EMAIL,
   LANGS,
   LANG_NAMES,
+  LANG_NAV_LABEL,
+  LANG_SHORT,
   PLAY_URL,
   langHref,
   privacyHref,
@@ -13,12 +15,13 @@ import {
   type Lang,
 } from "@/lib/i18n";
 
-export function Header({ lang, t }: { lang: Lang; t: Dict }) {
+export function Header({ lang }: { lang: Lang }) {
   return (
     <header className="sticky top-0 z-30 border-b border-[#f5f0e8]/10 bg-[#1a1a1f]/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-6 py-3.5">
         <Link
           href={langHref(lang)}
+          prefetch={false}
           className="flex items-center gap-2.5 transition-opacity hover:opacity-80"
         >
           <Image
@@ -28,26 +31,34 @@ export function Header({ lang, t }: { lang: Lang; t: Dict }) {
             height={32}
             className="h-8 w-8 rounded-full ring-1 ring-[#f5f0e8]/20"
           />
-          <span className="font-serif text-lg leading-none">
+          <span className="font-serif text-lg leading-none whitespace-nowrap">
             Antalya Cebinde
           </span>
         </Link>
 
-        <nav className="ml-auto flex items-center gap-0.5" aria-label={t.nav.features}>
+        <nav
+          className="ml-auto flex items-center gap-0.5"
+          aria-label={LANG_NAV_LABEL[lang]}
+        >
           {LANGS.map((l) => (
             <Link
               key={l}
               href={langHref(l)}
               hrefLang={l}
+              // Statik export'ta dinamik segmentin RSC payload'i uretilmiyor;
+              // prefetch her ziyarette 404 istegi doguruyordu.
+              prefetch={false}
               aria-current={l === lang ? "page" : undefined}
+              aria-label={LANG_NAMES[l]}
               className={
-                "cursor-pointer rounded-full px-3 py-2 font-sans text-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] " +
+                "cursor-pointer rounded-full px-2.5 py-2 font-sans text-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] sm:px-3 " +
                 (l === lang
                   ? "text-[#00B4D8]"
-                  : "text-[#f5f0e8]/45 hover:text-[#f5f0e8]")
+                  : "text-[#f5f0e8]/60 hover:text-[#f5f0e8]")
               }
             >
-              {LANG_NAMES[l]}
+              <span className="sm:hidden">{LANG_SHORT[l]}</span>
+              <span className="hidden sm:inline">{LANG_NAMES[l]}</span>
             </Link>
           ))}
         </nav>
@@ -88,13 +99,14 @@ export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
   return (
     <footer className="border-t border-[#f5f0e8]/10 px-6 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-        <span className="font-sans text-xs text-[#f5f0e8]/35">
+        <span className="font-sans text-xs text-[#f5f0e8]/55">
           © {new Date().getFullYear()} Antalya Cebinde · {t.footer.rights}
         </span>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 font-sans text-xs">
           <Link
             href={privacyHref(lang)}
+            prefetch={false}
             className="cursor-pointer text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
           >
             {t.footer.privacy}

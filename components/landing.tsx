@@ -42,7 +42,7 @@ export default function Landing({ lang }: { lang: Lang }) {
 
   return (
     <div lang={lang} className="flex min-h-screen flex-col">
-      <Header lang={lang} t={t} />
+      <Header lang={lang} />
 
       {/* ── Hero (parallax) ──
           Katman derinligi: 1 = en arka (en cok kayar), 4 = en on. */}
@@ -85,7 +85,7 @@ export default function Landing({ lang }: { lang: Lang }) {
               <div className="lg:[&>div]:justify-start">
                 <StoreButtons t={t} />
               </div>
-              <p className="mt-5 font-sans text-xs text-[#f5f0e8]/40">
+              <p className="mt-5 font-sans text-xs text-[#f5f0e8]/60">
                 {t.hero.note}
               </p>
             </div>
