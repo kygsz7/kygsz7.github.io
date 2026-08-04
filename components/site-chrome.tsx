@@ -4,6 +4,8 @@ import Link from "next/link";
 import {
   APPSTORE_URL,
   CONTACT_EMAIL,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
   LANGS,
   LANG_NAMES,
   LANG_NAV_LABEL,
@@ -112,6 +114,15 @@ export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
             {t.footer.privacy}
           </Link>
           <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex cursor-pointer items-center gap-1.5 text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
+          >
+            <InstagramIcon />
+            @{INSTAGRAM_HANDLE}
+          </a>
+          <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="cursor-pointer text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
           >
@@ -120,6 +131,24 @@ export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
         </div>
       </div>
     </footer>
+  );
+}
+
+function InstagramIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      width="14"
+      height="14"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      aria-hidden
+    >
+      <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
+      <circle cx="12" cy="12" r="4.2" />
+      <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
 

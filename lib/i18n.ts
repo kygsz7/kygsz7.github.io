@@ -19,6 +19,8 @@ export const PLAY_URL =
 // TODO: App Store linki verilmedi. Doldurulunca iOS butonu otomatik gorunur.
 export const APPSTORE_URL = "";
 export const CONTACT_EMAIL = "kygsz29@gmail.com";
+export const INSTAGRAM_HANDLE = "antalya.cebinde";
+export const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}`;
 
 export const LANG_NAMES: Record<Lang, string> = {
   tr: "Türkçe",
@@ -56,6 +58,12 @@ export type Dict = {
   featuresTitle: string;
   featuresLede: string;
   features: Feature[];
+  photosTitle: string;
+  photosLede: string;
+  screensTitle: string;
+  screensLede: string;
+  /** Sira, SCREENS dizisiyle eslesir (components/landing.tsx). */
+  screenCaptions: string[];
   cta: { title: string; body: string };
   footer: { contact: string; privacy: string; rights: string };
   privacy: {
@@ -118,6 +126,19 @@ export const dict: Record<Lang, Dict> = {
         title: "Acil durumda hazır",
         body: "Bulunduğun yere en yakın hastane, ATM ve market bilgisi her mekan sayfasında.",
       },
+    ],
+    photosTitle: "Rehberdeki yerler, gerçek kareler",
+    photosLede:
+      "Uygulamadaki mekanların hepsi gidilmiş, görülmüş, fotoğraflanmış yerler.",
+    screensTitle: "Sade, hızlı, işlevsel",
+    screensLede:
+      "Reklam kalabalığı yok, giriş zorunluluğu yok. Aç ve kullan.",
+    screenCaptions: [
+      "Gezini planla, rotanı oluştur",
+      "Türkçe, İngilizce, Rusça",
+      "Bölgenin yaban hayatı",
+      "Tramvay ve otobüs saatleri",
+      "Antik kentler ve kalıntılar",
     ],
     cta: {
       title: "Antalya'ya gitmeden önce indir",
@@ -227,6 +248,19 @@ export const dict: Record<Lang, Dict> = {
         body: "The nearest hospital, ATM and shop to where you are, on every place page.",
       },
     ],
+    photosTitle: "Real places, real photos",
+    photosLede:
+      "Every place in the app is somewhere we actually went, saw and photographed.",
+    screensTitle: "Clean, fast, functional",
+    screensLede:
+      "No ad clutter, no forced sign-up. Open it and go.",
+    screenCaptions: [
+      "Plan your trip, build your route",
+      "Turkish, English, Russian",
+      "Wildlife of the region",
+      "Tram and bus timetables",
+      "Ancient cities and ruins",
+    ],
     cta: {
       title: "Download before you land in Antalya",
       body: "Free. Turkish, English and Russian.",
@@ -334,6 +368,19 @@ export const dict: Record<Lang, Dict> = {
         title: "Готовность к экстренным ситуациям",
         body: "Ближайшая больница, банкомат и магазин — на странице каждого места.",
       },
+    ],
+    photosTitle: "Настоящие места, настоящие снимки",
+    photosLede:
+      "Каждое место в приложении — это то, куда мы действительно съездили и сфотографировали.",
+    screensTitle: "Чисто, быстро, функционально",
+    screensLede:
+      "Без рекламного шума и обязательной регистрации. Открыл и пользуешься.",
+    screenCaptions: [
+      "Спланируйте поездку и маршрут",
+      "Турецкий, английский, русский",
+      "Дикая природа региона",
+      "Расписание трамваев и автобусов",
+      "Античные города и руины",
     ],
     cta: {
       title: "Скачайте перед поездкой в Анталью",
