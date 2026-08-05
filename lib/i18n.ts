@@ -88,7 +88,7 @@ export const dict: Record<Lang, Dict> = {
         "Plajlar, antik kentler, gizli koylar ve restoranlar. 128 mekan, 147 etkinlik — hepsi tek uygulamada, cebinde.",
       play: "Google Play'den indir",
       ios: "App Store'dan indir",
-      note: "Abonelik yok, kilitli özellik yok.",
+      note: "Bütün özellikler açık.",
     },
     featuresTitle: "Tatilde ihtiyacın olan her şey",
     featuresLede:
@@ -129,10 +129,10 @@ export const dict: Record<Lang, Dict> = {
     ],
     photosTitle: "Rehberdeki yerler, gerçek kareler",
     photosLede:
-      "Uygulamadaki mekanların hepsi gidilmiş, görülmüş, fotoğraflanmış yerler.",
+      "Uygulamadaki her mekan gidilip fotoğraflandı.",
     screensTitle: "Sade, hızlı, işlevsel",
     screensLede:
-      "Reklam kalabalığı yok, giriş zorunluluğu yok. Aç ve kullan.",
+      "Kayıt istemeden, reklama boğmadan çalışır.",
     screenCaptions: [
       "Gezini planla, rotanı oluştur",
       "Türkçe, İngilizce, Rusça",
@@ -208,7 +208,7 @@ export const dict: Record<Lang, Dict> = {
         "Beaches, ancient cities, hidden coves and restaurants. 128 places and 147 events — all in one app, in your pocket.",
       play: "Get it on Google Play",
       ios: "Download on the App Store",
-      note: "No subscription, no locked features.",
+      note: "Every feature is unlocked.",
     },
     featuresTitle: "Everything you need on holiday",
     featuresLede:
@@ -249,10 +249,10 @@ export const dict: Record<Lang, Dict> = {
     ],
     photosTitle: "Real places, real photos",
     photosLede:
-      "Every place in the app is somewhere we actually went, saw and photographed.",
+      "Every place in the app is somewhere we went and photographed.",
     screensTitle: "Clean, fast, functional",
     screensLede:
-      "No ad clutter, no forced sign-up. Open it and go.",
+      "It works without sign-up screens or ad clutter.",
     screenCaptions: [
       "Plan your trip, build your route",
       "Turkish, English, Russian",
@@ -369,10 +369,10 @@ export const dict: Record<Lang, Dict> = {
     ],
     photosTitle: "Настоящие места, настоящие снимки",
     photosLede:
-      "Каждое место в приложении — это то, куда мы действительно съездили и сфотографировали.",
+      "Каждое место в приложении мы посетили и сфотографировали сами.",
     screensTitle: "Чисто, быстро, функционально",
     screensLede:
-      "Без рекламного шума и обязательной регистрации. Открыл и пользуешься.",
+      "Работает без экранов регистрации и рекламного шума.",
     screenCaptions: [
       "Спланируйте поездку и маршрут",
       "Турецкий, английский, русский",

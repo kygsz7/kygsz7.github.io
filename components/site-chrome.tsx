@@ -31,7 +31,8 @@ export function Header({ lang }: { lang: Lang }) {
             alt=""
             width={32}
             height={32}
-            className="h-8 w-8 rounded-full ring-1 ring-[#f5f0e8]/20"
+            // Uygulama ikonu yuvarlak kare — daire maskesi kosaleri keserdi
+            className="h-8 w-8 rounded-[0.5rem] ring-1 ring-[#f5f0e8]/15"
           />
           <span className="font-serif text-lg leading-none whitespace-nowrap">
             Antalya Cebinde
