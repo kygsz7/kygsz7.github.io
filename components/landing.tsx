@@ -29,14 +29,22 @@ const HERO_LAYERS = [
 const SCREENS = ["trip", "languages", "wildlife", "transport"];
 
 /** Antalya fotograflari — public/photos/ altinda. */
+/* Kiyi, antik kent ve muze kareleri donusumlu — galeri tek bir temaya
+   sikismasin, uygulamanin kapsami gorunsun. Ilk kare iki sutun kaplar. */
 const PHOTOS = [
   "magara",
+  "side-heykeller",
   "turkuaz-koy",
+  "side-muze-lahit",
   "kano-gunbatimi",
+  "side-sutunlar",
   "gulet",
+  "antalya-muze-lahit",
   "koy-kayalik",
+  "gelidonya-feneri",
   "magara-kemer",
   "toroslar",
+  "paddleboard",
   "kayalik-sahil",
 ];
 

@@ -33,7 +33,20 @@ for (const [name, url, viewport] of targets) {
   page.on("pageerror", (e) => errors.push(`${name}: ${e.message}`));
 
   await page.goto(BASE + url, { waitUntil: "networkidle" });
-  await page.waitForTimeout(2000);
+
+  // loading="lazy" gorseller ekrana girmeden yuklenmiyor; tam sayfa
+  // goruntusunde alt bolumler bos cikiyordu. Once sayfayi bastan sona
+  // kaydir, sonra basa don.
+  await page.evaluate(async () => {
+    const step = window.innerHeight * 0.8;
+    for (let y = 0; y < document.body.scrollHeight; y += step) {
+      window.scrollTo(0, y);
+      await new Promise((r) => setTimeout(r, 120));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForLoadState("networkidle");
+  await page.waitForTimeout(1200);
   await page.screenshot({ path: path.join(OUT, `${name}.png`) });
   await page.screenshot({
     path: path.join(OUT, `${name}-full.png`),
