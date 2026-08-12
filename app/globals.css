@@ -128,3 +128,36 @@
     @apply font-sans;
   }
 }
+/* ── Kart yelpazesi (components/ui/card-fan-carousel.tsx) ──────────────
+   Bilesen bu iki sinifi bekliyor ama CSS'i beraberinde gelmiyor.
+   Yukseklikler bilesendeki getHeightMultiplier() esiklerine birebir
+   uyar — degistirilirse orasi da guncellenmeli, yoksa y-offset
+   hesaplari kayar. */
+
+.fan-layout {
+  height: 22rem;
+}
+@media (min-width: 480px) { .fan-layout { height: 26rem; } }
+@media (min-width: 640px) { .fan-layout { height: 28rem; } }
+@media (min-width: 768px) { .fan-layout { height: 34rem; } }
+@media (min-width: 1024px) { .fan-layout { height: 38rem; } }
+
+.fan-card {
+  position: absolute;
+  height: 17rem;
+  aspect-ratio: 3 / 4;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #0d0d10;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  /* Kenar cizgisi kartlari koyu zeminde birbirinden ayirir */
+  outline: 1px solid rgb(245 240 232 / 0.12);
+  outline-offset: -1px;
+  /* GSAP transform'lari her karede degisiyor */
+  will-change: transform;
+  transform-origin: center bottom;
+}
+@media (min-width: 480px) { .fan-card { height: 20rem; } }
+@media (min-width: 640px) { .fan-card { height: 22rem; } }
+@media (min-width: 768px) { .fan-card { height: 27rem; } }
+@media (min-width: 1024px) { .fan-card { height: 30rem; } }

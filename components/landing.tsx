@@ -13,6 +13,7 @@ import {
 
 import DotBackground from "@/components/dot-background";
 import { Footer, Header, StoreButtons } from "@/components/site-chrome";
+import CardFan from "@/components/ui/card-fan-carousel";
 import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
 import { dict, type Lang } from "@/lib/i18n";
 
@@ -248,25 +249,11 @@ export default function Landing({ lang }: { lang: Lang }) {
             {t.photosLede}
           </p>
 
-          <ul className="mt-14 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4">
-            {PHOTOS.map((name, i) => (
-              <li
-                key={name}
-                // Ilk kare iki sutun kaplasin — izgaraya ritim katar
-                className={i === 0 ? "col-span-2 sm:col-span-2" : undefined}
-              >
-                <Image
-                  src={`/photos/${name}.webp`}
-                  alt=""
-                  width={900}
-                  height={675}
-                  loading="lazy"
-                  sizes="(max-width: 640px) 50vw, 33vw"
-                  className="h-full w-full rounded-lg object-cover"
-                />
-              </li>
-            ))}
-          </ul>
+        </div>
+
+        {/* Kart yelpazesi — izgara yerine; fotograflar tek tek one cikiyor */}
+        <div className="mt-10">
+          <CardFan cards={PHOTOS.map((name) => ({ imgUrl: `/photos/${name}.webp` }))} />
         </div>
       </section>
 
