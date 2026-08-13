@@ -7,10 +7,15 @@ export interface CardItem {
   imgUrl: string;
   alt?: string;
   linkUrl?: string;
+  /** Kartin altinda gorunen etiket — uygulama bolum adlari icin. */
+  label?: string;
 }
 
 interface SocialCardsProps {
   cards: CardItem[];
+  /** Ortadaki kartin bulanik kopyasi arka plana serilsin mi.
+   *  Duz koyu zemini kirar, kartlarin rengiyle degisir. */
+  ambient?: boolean;
 }
 
 const MAX_VISIBLE = 7;
@@ -72,7 +77,7 @@ function getSlotConfig(totalCards: number, slot: number) {
 const ARROW_CLASSES =
   "relative flex items-center justify-center rounded-full border-[1.5px] border-[#f5f0e8]/20 bg-[#f5f0e8]/5 backdrop-blur-[16px] text-[#f5f0e8]/70 cursor-pointer shrink-0 z-30 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-[#00B4D8]/60 hover:text-[#00B4D8] active:opacity-70 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:border before:border-[#f5f0e8]/[0.06] before:pointer-events-none";
 
-export default function SocialCards({ cards }: SocialCardsProps) {
+export default function SocialCards({ cards, ambient = false }: SocialCardsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const isAnimating = useRef(false);
   const hasEntered = useRef(false);
@@ -268,6 +273,26 @@ export default function SocialCards({ cards }: SocialCardsProps) {
 
   return (
     <section className="flex flex-col items-center w-full py-4 lg:py-8 px-4 md:px-8 relative z-20 overflow-x-clip">
+      {ambient && (
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+          {/* Ortadaki karenin agir bulanik kopyasi — duz koyu zemini kirar,
+              gezindikce rengi degisir. Kenarlar maskeyle zemine erir. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            key={cards[centerIndex]?.imgUrl}
+            src={cards[centerIndex]?.imgUrl}
+            alt=""
+            className="absolute left-1/2 top-1/2 h-[130%] w-[130%] -translate-x-1/2 -translate-y-1/2 scale-110 object-cover opacity-25 blur-[90px] transition-opacity duration-700"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse at 50% 45%, transparent 0%, rgba(26,26,31,0.55) 55%, #1a1a1f 88%)",
+            }}
+          />
+        </div>
+      )}
       <div className="flex items-center justify-center w-full max-w-[90rem]">
         <div ref={containerRef} className="fan-layout flex relative justify-center items-center w-full max-w-[80rem]">
           {cards.map((card, index) => {
@@ -277,6 +302,18 @@ export default function SocialCards({ cards }: SocialCardsProps) {
                     Kartlar GSAP ile donduruluyor; next/image'in sarmalayici
                     div'i transform hesabini bozuyor. */}
                 <img src={card.imgUrl} loading="lazy" alt={card.alt || `Card ${index}`} className="absolute inset-0 w-full h-full object-cover z-10" />
+                {card.label && (
+                  <>
+                    <div
+                      aria-hidden
+                      className="absolute inset-x-0 bottom-0 z-20 h-2/5"
+                      style={{ background: "linear-gradient(to top, rgba(12,12,16,0.92), transparent)" }}
+                    />
+                    <span className="absolute inset-x-0 bottom-0 z-30 px-4 pb-4 font-serif text-lg leading-tight text-[#f5f0e8]">
+                      {card.label}
+                    </span>
+                  </>
+                )}
               </div>
             );
             return card.linkUrl ? (

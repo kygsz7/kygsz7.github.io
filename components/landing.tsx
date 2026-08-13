@@ -29,6 +29,18 @@ const HERO_LAYERS = [
 /** Galeri bolumundeki ekranlar. Sira, dict.screenCaptions ile eslesir. */
 const SCREENS = ["trip", "languages", "wildlife", "transport"];
 
+/** Uygulamadaki bolumler. Sira, dict.sectionLabels ile eslesir. */
+const SECTIONS = [
+  "turkuaz-koy",      // Plajlar
+  "koy-kayalik",      // Koylar
+  "side-heykeller",   // Antik Kentler
+  "side-muze-lahit",  // Muzeler
+  "paddleboard",      // SUP & Kano
+  "toroslar",         // Doga Yuruyusleri
+  "magara",           // Dalis Noktalari
+  "kano-gunbatimi",   // Aktiviteler
+];
+
 /** Antalya fotograflari — public/photos/ altinda. */
 /* Kiyi, antik kent ve muze kareleri donusumlu — galeri tek bir temaya
    sikismasin, uygulamanin kapsami gorunsun. Ilk kare iki sutun kaplar. */
@@ -212,6 +224,29 @@ export default function Landing({ lang }: { lang: Lang }) {
         </div>
       </section>
 
+      {/* ── Uygulamadaki bolumler ── */}
+      <section className="relative border-t border-[#f5f0e8]/10 py-24 sm:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
+            {t.sectionsTitle}
+          </h2>
+          <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+            {t.sectionsLede}
+          </p>
+        </div>
+
+        <div className="mt-10">
+          <CardFan
+            ambient
+            cards={SECTIONS.map((name, i) => ({
+              imgUrl: `/photos/${name}.webp`,
+              label: t.sectionLabels[i],
+              alt: t.sectionLabels[i],
+            }))}
+          />
+        </div>
+      </section>
+
       {/* ── Uygulama ekranlari ── */}
       <section className="overflow-hidden border-t border-[#f5f0e8]/10 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
@@ -253,7 +288,7 @@ export default function Landing({ lang }: { lang: Lang }) {
 
         {/* Kart yelpazesi — izgara yerine; fotograflar tek tek one cikiyor */}
         <div className="mt-10">
-          <CardFan cards={PHOTOS.map((name) => ({ imgUrl: `/photos/${name}.webp` }))} />
+          <CardFan ambient cards={PHOTOS.map((name) => ({ imgUrl: `/photos/${name}.webp` }))} />
         </div>
       </section>
 

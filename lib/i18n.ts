@@ -58,6 +58,10 @@ export type Dict = {
   featuresTitle: string;
   featuresLede: string;
   features: Feature[];
+  sectionsTitle: string;
+  sectionsLede: string;
+  /** Sira, SECTIONS dizisiyle eslesir (components/landing.tsx). */
+  sectionLabels: string[];
   photosTitle: string;
   photosLede: string;
   screensTitle: string;
@@ -126,6 +130,13 @@ export const dict: Record<Lang, Dict> = {
         title: "Acil durumda hazır",
         body: "Bulunduğun yere en yakın hastane, ATM ve market bilgisi her mekan sayfasında.",
       },
+    ],
+    sectionsTitle: "Uygulamadaki bölümler",
+    sectionsLede:
+      "Her biri ayrı bir sekme. Kategoriye göre gez, hepsi haritada işaretli.",
+    sectionLabels: [
+      "Plajlar", "Koylar", "Antik Kentler", "Müzeler",
+      "SUP & Kano", "Doğa Yürüyüşleri", "Dalış Noktaları", "Aktiviteler",
     ],
     photosTitle: "Rehberdeki yerler, gerçek kareler",
     photosLede:
@@ -247,6 +258,13 @@ export const dict: Record<Lang, Dict> = {
         body: "The nearest hospital, ATM and shop to where you are, on every place page.",
       },
     ],
+    sectionsTitle: "What's inside the app",
+    sectionsLede:
+      "Each one its own tab. Browse by category — everything is pinned on the map.",
+    sectionLabels: [
+      "Beaches", "Bays & Coves", "Ancient Cities", "Museums",
+      "SUP & Canoe", "Nature Walks", "Dive Sites", "Activities",
+    ],
     photosTitle: "Real places, real photos",
     photosLede:
       "Every place in the app is somewhere we went and photographed.",
@@ -366,6 +384,13 @@ export const dict: Record<Lang, Dict> = {
         title: "Готовность к экстренным ситуациям",
         body: "Ближайшая больница, банкомат и магазин — на странице каждого места.",
       },
+    ],
+    sectionsTitle: "Что внутри приложения",
+    sectionsLede:
+      "Каждый раздел — отдельная вкладка. Смотрите по категориям, всё отмечено на карте.",
+    sectionLabels: [
+      "Пляжи", "Бухты", "Античные Города", "Музеи",
+      "СУП и Каноэ", "Пешие Прогулки", "Места для дайвинга", "Активности",
     ],
     photosTitle: "Настоящие места, настоящие снимки",
     photosLede:
