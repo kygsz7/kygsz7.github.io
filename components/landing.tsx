@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 
 import DotBackground from "@/components/dot-background";
+import { Reveal, RevealItem, RevealList } from "@/components/reveal";
 import { Footer, Header, StoreButtons } from "@/components/site-chrome";
 import CardFan from "@/components/ui/card-fan-carousel";
 import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
@@ -191,21 +192,23 @@ export default function Landing({ lang }: { lang: Lang }) {
         className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
-          <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-[#00B4D8]">
-            {t.nav.features}
-          </p>
-          <h2 className="mt-4 max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
-            {t.featuresTitle}
-          </h2>
-          <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
-            {t.featuresLede}
-          </p>
+          <Reveal>
+            <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-[#00B4D8]">
+              {t.nav.features}
+            </p>
+            <h2 className="mt-4 max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
+              {t.featuresTitle}
+            </h2>
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+              {t.featuresLede}
+            </p>
+          </Reveal>
 
-          <ul className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+          <RevealList className="mt-16 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
             {t.features.map((f, i) => {
               const Icon = ICONS[i] ?? Compass;
               return (
-                <li key={f.title}>
+                <RevealItem key={f.title}>
                   <Icon
                     aria-hidden
                     strokeWidth={1.25}
@@ -217,22 +220,24 @@ export default function Landing({ lang }: { lang: Lang }) {
                   <p className="mt-2.5 font-sans text-sm leading-relaxed text-[#f5f0e8]/55">
                     {f.body}
                   </p>
-                </li>
+                </RevealItem>
               );
             })}
-          </ul>
+          </RevealList>
         </div>
       </section>
 
       {/* ── Uygulamadaki bolumler ── */}
       <section className="relative border-t border-[#f5f0e8]/10 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
-            {t.sectionsTitle}
-          </h2>
-          <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
-            {t.sectionsLede}
-          </p>
+          <Reveal>
+            <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
+              {t.sectionsTitle}
+            </h2>
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+              {t.sectionsLede}
+            </p>
+          </Reveal>
         </div>
 
         <div className="mt-10">
@@ -250,12 +255,14 @@ export default function Landing({ lang }: { lang: Lang }) {
       {/* ── Uygulama ekranlari ── */}
       <section className="overflow-hidden border-t border-[#f5f0e8]/10 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
-            {t.screensTitle}
-          </h2>
-          <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
-            {t.screensLede}
-          </p>
+          <Reveal>
+            <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
+              {t.screensTitle}
+            </h2>
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+              {t.screensLede}
+            </p>
+          </Reveal>
         </div>
 
         {/* Dar ekranda yatay kaydirilir, genis ekranda hepsi sigar */}
@@ -277,12 +284,14 @@ export default function Landing({ lang }: { lang: Lang }) {
       {/* ── Antalya fotograflari ── */}
       <section className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl">
-          <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
-            {t.photosTitle}
-          </h2>
-          <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
-            {t.photosLede}
-          </p>
+          <Reveal>
+            <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
+              {t.photosTitle}
+            </h2>
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+              {t.photosLede}
+            </p>
+          </Reveal>
 
         </div>
 
@@ -294,7 +303,7 @@ export default function Landing({ lang }: { lang: Lang }) {
 
       {/* ── Kapanis ── */}
       <section className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28">
-        <div className="mx-auto max-w-xl text-center">
+        <Reveal className="mx-auto max-w-xl text-center">
           <h2 className="font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
             {t.cta.title}
           </h2>
@@ -302,7 +311,7 @@ export default function Landing({ lang }: { lang: Lang }) {
           <div className="mt-10">
             <StoreButtons t={t} />
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <Footer lang={lang} t={t} />
