@@ -23,6 +23,7 @@ export type AsciiPixelProps = {
   cellSize?: number;
   brightness?: number; // -100..100
   contrast?: number; // 0..200, 100 = notr
+  /** Verilmezse --background token'i kullanilir. */
   bgColor?: string;
   bgOpacity?: number; // 0..100
   animated?: boolean;
@@ -38,7 +39,7 @@ export default function AsciiPixelBackground({
   cellSize = 3,
   brightness = 12,
   contrast = 115,
-  bgColor = "#1a1a1f",
+  bgColor,   // verilmezse --background token'indan okunur
   bgOpacity = 90,
   animated = true,
   animSpeed = 100,
@@ -54,6 +55,11 @@ export default function AsciiPixelBackground({
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
+
+    // Tema degistiginde kanvas da degissin: rengi token'dan oku
+    const cssVar = (name: string, fallback: string) =>
+      getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
+    const bg = bgColor ?? cssVar("--background", "#1a1a1f");
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const moving = animated && !reduced;
@@ -132,7 +138,7 @@ export default function AsciiPixelBackground({
       // bgMode "solid": once duz zemin, sonra mozaik bgOpacity ile ustune
       ctx.globalCompositeOperation = "source-over";
       ctx.globalAlpha = 1;
-      ctx.fillStyle = bgColor;
+      ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 
       ctx.globalAlpha = bgOpacity / 100;

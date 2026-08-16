@@ -19,7 +19,7 @@ import {
 
 export function Header({ lang }: { lang: Lang }) {
   return (
-    <header className="sticky top-0 z-30 border-b border-[#f5f0e8]/10 bg-[#1a1a1f]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-30 border-b border-border/10 bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-6 py-3.5">
         <Link
           href={langHref(lang)}
@@ -32,7 +32,7 @@ export function Header({ lang }: { lang: Lang }) {
             width={32}
             height={32}
             // Uygulama ikonu yuvarlak kare — daire maskesi kosaleri keserdi
-            className="h-8 w-8 rounded-[0.5rem] ring-1 ring-[#f5f0e8]/15"
+            className="h-8 w-8 rounded-[0.5rem] ring-1 ring-foreground/15"
           />
           <span className="font-serif text-lg leading-none whitespace-nowrap">
             Antalya Cebinde
@@ -54,10 +54,10 @@ export function Header({ lang }: { lang: Lang }) {
               aria-current={l === lang ? "page" : undefined}
               aria-label={LANG_NAMES[l]}
               className={
-                "cursor-pointer rounded-full px-2.5 py-2 font-sans text-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] sm:px-3 " +
+                "cursor-pointer rounded-full px-2.5 py-2 font-sans text-xs transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:px-3 " +
                 (l === lang
-                  ? "text-[#00B4D8]"
-                  : "text-[#f5f0e8]/60 hover:text-[#f5f0e8]")
+                  ? "text-primary"
+                  : "text-foreground/60 hover:text-foreground")
               }
             >
               <span className="sm:hidden">{LANG_SHORT[l]}</span>
@@ -77,7 +77,7 @@ export function StoreButtons({ t }: { t: Dict }) {
         href={PLAY_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-[#00B4D8] px-7 py-3.5 font-sans text-sm font-semibold text-[#08222b] shadow-lg shadow-black/40 transition-all duration-200 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] sm:w-auto"
+        className="inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full bg-primary px-7 py-3.5 font-sans text-sm font-semibold text-primary-foreground shadow-lg shadow-black/40 transition-all duration-200 hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
       >
         <GooglePlayIcon />
         {t.hero.play}
@@ -88,7 +88,7 @@ export function StoreButtons({ t }: { t: Dict }) {
           href={APPSTORE_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full border border-[#f5f0e8]/25 px-7 py-3.5 font-sans text-sm font-semibold text-[#f5f0e8] transition-colors duration-200 hover:bg-[#f5f0e8]/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] sm:w-auto"
+          className="inline-flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-full border border-border/25 px-7 py-3.5 font-sans text-sm font-semibold text-foreground transition-colors duration-200 hover:bg-foreground/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary sm:w-auto"
         >
           <AppleIcon />
           {t.hero.ios}
@@ -100,9 +100,9 @@ export function StoreButtons({ t }: { t: Dict }) {
 
 export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
   return (
-    <footer className="border-t border-[#f5f0e8]/10 px-6 py-10">
+    <footer className="border-t border-border/10 px-6 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
-        <span className="font-sans text-xs text-[#f5f0e8]/55">
+        <span className="font-sans text-xs text-foreground/55">
           © {new Date().getFullYear()} Antalya Cebinde · {t.footer.rights}
         </span>
 
@@ -110,7 +110,7 @@ export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
           <Link
             href={privacyHref(lang)}
             prefetch={false}
-            className="cursor-pointer text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
+            className="cursor-pointer text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
             {t.footer.privacy}
           </Link>
@@ -118,14 +118,14 @@ export function Footer({ lang, t }: { lang: Lang; t: Dict }) {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex cursor-pointer items-center gap-1.5 text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
+            className="inline-flex cursor-pointer items-center gap-1.5 text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
             <InstagramIcon />
             @{INSTAGRAM_HANDLE}
           </a>
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="cursor-pointer text-[#f5f0e8]/50 underline-offset-4 transition-colors hover:text-[#f5f0e8] hover:underline"
+            className="cursor-pointer text-foreground/50 underline-offset-4 transition-colors hover:text-foreground hover:underline"
           >
             {t.footer.contact}
           </a>

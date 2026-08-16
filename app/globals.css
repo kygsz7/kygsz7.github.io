@@ -49,24 +49,28 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  /* --- Antalya Cebinde paleti ---
+     Tema degistirmek icin SADECE burasi duzenlenir. Bilesenler
+     bg-background / text-foreground / text-primary gibi token
+     siniflari kullanir, sabit hex tasimaz. */
+  --background: #1a1a1f;         /* zemin */
+  --foreground: #f5f0e8;         /* metin (krem) */
+  --card: #0d0d10;               /* kart kuyusu, telefon cercevesi */
+  --card-foreground: #f5f0e8;
+  --popover: #0d0d10;
+  --popover-foreground: #f5f0e8;
+  --primary: #00b4d8;            /* marka turkuazi */
+  --primary-foreground: #08222b; /* turkuaz uzerindeki yazi */
+  --secondary: #23232b;
+  --secondary-foreground: #f5f0e8;
+  --muted: #23232b;
+  --muted-foreground: #a8a39c;   /* ikincil metin */
+  --accent: #00b4d8;
+  --accent-foreground: #08222b;
+  --destructive: #e5484d;
+  --border: #f5f0e8;             /* opaklik siniftan verilir: border-border/10 */
+  --input: #2e2e38;
+  --ring: #00b4d8;
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);

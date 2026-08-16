@@ -89,7 +89,7 @@ function Phone({
   return (
     <div
       className={
-        "aspect-[9/18] overflow-hidden rounded-[1.6rem] bg-[#0d0d10] p-[3px] shadow-2xl shadow-black/70 ring-1 ring-[#f5f0e8]/15 " +
+        "aspect-[9/18] overflow-hidden rounded-[1.6rem] bg-card p-[3px] shadow-2xl shadow-black/70 ring-1 ring-foreground/15 " +
         (className ?? "")
       }
     >
@@ -138,7 +138,7 @@ export default function Landing({ lang }: { lang: Lang }) {
             data-parallax-layer="3"
             className="text-center lg:text-left"
           >
-            <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-[#00B4D8]">
+            <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-primary">
               {t.hero.badge}
             </p>
 
@@ -146,7 +146,7 @@ export default function Landing({ lang }: { lang: Lang }) {
               {t.hero.title}
             </h1>
 
-            <p className="mx-auto mt-7 max-w-lg font-sans text-base leading-relaxed text-pretty text-[#f5f0e8]/65 lg:mx-0">
+            <p className="mx-auto mt-7 max-w-lg font-sans text-base leading-relaxed text-pretty text-foreground/65 lg:mx-0">
               {t.hero.lede}
             </p>
 
@@ -154,7 +154,7 @@ export default function Landing({ lang }: { lang: Lang }) {
               <div className="lg:[&>div]:justify-start">
                 <StoreButtons t={t} />
               </div>
-              <p className="mt-5 font-sans text-xs text-[#f5f0e8]/60">
+              <p className="mt-5 font-sans text-xs text-foreground/60">
                 {t.hero.note}
               </p>
             </div>
@@ -190,17 +190,17 @@ export default function Landing({ lang }: { lang: Lang }) {
       {/* ── Ozellikler ── */}
       <section
         id="features"
-        className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28"
+        className="border-t border-border/10 px-6 py-24 sm:py-28"
       >
         <div className="mx-auto max-w-6xl">
           <Reveal>
-            <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-[#00B4D8]">
+            <p className="font-sans text-[0.7rem] font-medium uppercase tracking-[0.25em] text-primary">
               {t.nav.features}
             </p>
             <h2 className="mt-4 max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
               {t.featuresTitle}
             </h2>
-            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-foreground/55">
               {t.featuresLede}
             </p>
           </Reveal>
@@ -213,12 +213,12 @@ export default function Landing({ lang }: { lang: Lang }) {
                   <Icon
                     aria-hidden
                     strokeWidth={1.25}
-                    className="h-7 w-7 text-[#00B4D8]"
+                    className="h-7 w-7 text-primary"
                   />
                   <h3 className="mt-5 font-serif text-xl font-medium leading-snug">
                     {f.title}
                   </h3>
-                  <p className="mt-2.5 font-sans text-sm leading-relaxed text-[#f5f0e8]/55">
+                  <p className="mt-2.5 font-sans text-sm leading-relaxed text-foreground/55">
                     {f.body}
                   </p>
                 </RevealItem>
@@ -229,7 +229,7 @@ export default function Landing({ lang }: { lang: Lang }) {
       </section>
 
       {/* ── Uygulamadaki bolumler ── */}
-      <section className="relative overflow-hidden border-t border-[#f5f0e8]/10 py-24 sm:py-28">
+      <section className="relative overflow-hidden border-t border-border/10 py-24 sm:py-28">
         {/* Piksel-mozaik arka plan — 21st.dev "ascii" tarifi, renderMode=pixel */}
         {/* Tarifteki degerler tek basina duran bir efekt icin: bgOpacity 90 ve
             cellSize 3 ile fotograf neredeyse tam parlaklikta ciziliyor, ustundeki
@@ -251,7 +251,7 @@ export default function Landing({ lang }: { lang: Lang }) {
             <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
               {t.sectionsTitle}
             </h2>
-            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-foreground/55">
               {t.sectionsLede}
             </p>
           </Reveal>
@@ -269,13 +269,13 @@ export default function Landing({ lang }: { lang: Lang }) {
       </section>
 
       {/* ── Uygulama ekranlari ── */}
-      <section className="overflow-hidden border-t border-[#f5f0e8]/10 py-24 sm:py-28">
+      <section className="overflow-hidden border-t border-border/10 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
               {t.screensTitle}
             </h2>
-            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-foreground/55">
               {t.screensLede}
             </p>
           </Reveal>
@@ -289,7 +289,7 @@ export default function Landing({ lang }: { lang: Lang }) {
               className="w-[46vw] max-w-[210px] shrink-0 snap-center sm:w-[30vw] lg:w-[180px]"
             >
               <Phone src={`/screenshots/${name}.webp`} />
-              <p className="mt-4 font-sans text-xs leading-relaxed text-[#f5f0e8]/55">
+              <p className="mt-4 font-sans text-xs leading-relaxed text-foreground/55">
                 {t.screenCaptions[i]}
               </p>
             </li>
@@ -298,13 +298,13 @@ export default function Landing({ lang }: { lang: Lang }) {
       </section>
 
       {/* ── Antalya fotograflari ── */}
-      <section className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28">
+      <section className="border-t border-border/10 px-6 py-24 sm:py-28">
         <div className="mx-auto max-w-6xl">
           <Reveal>
             <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
               {t.photosTitle}
             </h2>
-            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-[#f5f0e8]/55">
+            <p className="mt-4 max-w-xl font-sans leading-relaxed text-pretty text-foreground/55">
               {t.photosLede}
             </p>
           </Reveal>
@@ -318,12 +318,12 @@ export default function Landing({ lang }: { lang: Lang }) {
       </section>
 
       {/* ── Kapanis ── */}
-      <section className="border-t border-[#f5f0e8]/10 px-6 py-24 sm:py-28">
+      <section className="border-t border-border/10 px-6 py-24 sm:py-28">
         <Reveal className="mx-auto max-w-xl text-center">
           <h2 className="font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
             {t.cta.title}
           </h2>
-          <p className="mt-4 font-sans text-[#f5f0e8]/55">{t.cta.body}</p>
+          <p className="mt-4 font-sans text-foreground/55">{t.cta.body}</p>
           <div className="mt-10">
             <StoreButtons t={t} />
           </div>

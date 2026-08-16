@@ -36,18 +36,22 @@ function hexToRgb01(hex: string): [number, number, number] {
 }
 
 type Props = {
-  /** Nokta rengi. Varsayilan: marka turkuazi. */
+  /** Nokta rengi. Verilmezse --primary token'i kullanilir. */
   color?: string;
   className?: string;
 };
 
 export default function DotBackground({
-  color = "#00B4D8",
+  color,   // verilmezse --primary token'indan okunur
   className,
 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    // Tema degistiginde nokta rengi de degissin
+    const themeColor = color ??
+      (getComputedStyle(document.documentElement).getPropertyValue("--primary").trim() || "#00B4D8");
+
     // Hareket azaltma tercihini sayan kullanicilara animasyon gosterme.
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -84,7 +88,7 @@ export default function DotBackground({
         u_opacities: {
           value: [0.2, 0.2, 0.3, 0.35, 0.45, 0.5, 0.6, 0.75, 0.9, 1.0],
         },
-        u_color: { value: new THREE.Vector3(...hexToRgb01(color)) },
+        u_color: { value: new THREE.Vector3(...hexToRgb01(themeColor)) },
         u_total_size: { value: 20.0 },
         u_dot_size: { value: 5.0 },
       };

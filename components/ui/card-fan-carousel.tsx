@@ -75,7 +75,7 @@ function getSlotConfig(totalCards: number, slot: number) {
    acik-tema degerleri (siyah) zemine karisip oklari gorunmez yapiyordu.
    Renkler dogrudan site paletinden. */
 const ARROW_CLASSES =
-  "relative flex items-center justify-center rounded-full border-[1.5px] border-[#f5f0e8]/20 bg-[#f5f0e8]/5 backdrop-blur-[16px] text-[#f5f0e8]/70 cursor-pointer shrink-0 z-30 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-[#00B4D8]/60 hover:text-[#00B4D8] active:opacity-70 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00B4D8] before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:border before:border-[#f5f0e8]/[0.06] before:pointer-events-none";
+  "relative flex items-center justify-center rounded-full border-[1.5px] border-border/20 bg-foreground/5 backdrop-blur-[16px] text-foreground/70 cursor-pointer shrink-0 z-30 shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-primary/60 hover:text-primary active:opacity-70 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary before:content-[''] before:absolute before:inset-[3px] before:rounded-full before:border before:border-border/[0.06] before:pointer-events-none";
 
 export default function SocialCards({ cards, ambient = false }: SocialCardsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -309,7 +309,7 @@ export default function SocialCards({ cards, ambient = false }: SocialCardsProps
                       className="absolute inset-x-0 bottom-0 z-20 h-2/5"
                       style={{ background: "linear-gradient(to top, rgba(12,12,16,0.92), transparent)" }}
                     />
-                    <span className="absolute inset-x-0 bottom-0 z-30 px-4 pb-4 font-serif text-lg leading-tight text-[#f5f0e8]">
+                    <span className="absolute inset-x-0 bottom-0 z-30 px-4 pb-4 font-serif text-lg leading-tight text-foreground">
                       {card.label}
                     </span>
                   </>
@@ -332,7 +332,7 @@ export default function SocialCards({ cards, ambient = false }: SocialCardsProps
           </button>
           <div className="flex items-center gap-2">
             {cards.map((_, i) => (
-              <span key={i} className={`w-2 h-2 rounded-full transition-all duration-300 ${i === centerIndex ? "bg-[#00B4D8] scale-[1.3]" : "bg-[#f5f0e8]/20"}`} />
+              <span key={i} className={`w-2 h-2 rounded-full transition-all duration-300 ${i === centerIndex ? "bg-primary scale-[1.3]" : "bg-foreground/20"}`} />
             ))}
           </div>
           <button className={`${ARROW_CLASSES} w-10 h-10 md:w-12 md:h-12`} onClick={() => cycle("right")} aria-label="Next">

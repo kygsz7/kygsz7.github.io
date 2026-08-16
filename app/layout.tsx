@@ -36,7 +36,7 @@ export default function RootLayout({
       lang="tr"
       className={`${serif.variable} ${sans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#1a1a1f] text-[#f5f0e8]">
+      <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
       </body>
     </html>
