@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 
-/* Her iki font da Kiril destekliyor — Rusca sayfa icin sart.
-   Canli sitedeki Bebas Neue ve DM Sans'ta Kiril YOK, bu yuzden kullanilmiyor. */
-const serif = Cormorant_Garamond({
-  variable: "--font-serif",
-  subsets: ["latin", "latin-ext", "cyrillic"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
+/* Instagram Sans istenmisti; Meta'nin tescilli fontu, halka acik lisansi yok
+   (Colophon Foundry ile ozel uretim). En yakin serbest lisansli karsiligi
+   Rubik: ayni yuvarlak-geometrik karakter, degisken agirlik.
 
-const sans = Inter({
+   Kiril sart — RU sayfasi var. Bu yuzden Poppins ve DM Sans elendi
+   (Instagram Sans'e yakinlar ama Kiril tasimiyorlar), ayni sebeple daha
+   once Bebas Neue ve DM Sans kullanilmamisti.
+
+   Baslik ve govde ayni aileden: font-serif -> --font-sans eslesmesi
+   app/globals.css icindeki @theme blogunda. */
+const sans = Rubik({
   variable: "--font-sans",
   subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -34,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="tr"
-      className={`${serif.variable} ${sans.variable} h-full antialiased`}
+      className={`${sans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
