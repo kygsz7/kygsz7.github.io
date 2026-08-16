@@ -14,6 +14,7 @@ import {
 import DotBackground from "@/components/dot-background";
 import { Reveal, RevealItem, RevealList } from "@/components/reveal";
 import { Footer, Header, StoreButtons } from "@/components/site-chrome";
+import AsciiPixelBackground from "@/components/ui/ascii-pixel-background";
 import CardFan from "@/components/ui/card-fan-carousel";
 import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
 import { dict, type Lang } from "@/lib/i18n";
@@ -228,7 +229,23 @@ export default function Landing({ lang }: { lang: Lang }) {
       </section>
 
       {/* ── Uygulamadaki bolumler ── */}
-      <section className="relative border-t border-[#f5f0e8]/10 py-24 sm:py-28">
+      <section className="relative overflow-hidden border-t border-[#f5f0e8]/10 py-24 sm:py-28">
+        {/* Piksel-mozaik arka plan — 21st.dev "ascii" tarifi, renderMode=pixel */}
+        {/* Tarifteki degerler tek basina duran bir efekt icin: bgOpacity 90 ve
+            cellSize 3 ile fotograf neredeyse tam parlaklikta ciziliyor, ustundeki
+            baslik okunmaz oluyordu. Arka plan olarak calismasi icin:
+            - cellSize 3 -> 12: bu olcekte 3px hucre piksel gibi gorunmuyordu
+            - bgOpacity 90 -> 26 ve brightness 12 -> -18: metin kontrasti icin
+            Dalga, bloom ve vignette tariftekiyle ayni. */}
+        <AsciiPixelBackground
+          src="/photos/side-muze-lahit.webp"
+          cellSize={12}
+          bgOpacity={26}
+          brightness={-18}
+          contrast={130}
+          className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
+        />
+
         <div className="mx-auto max-w-6xl px-6">
           <Reveal>
             <h2 className="max-w-2xl font-serif text-4xl font-light leading-tight text-balance sm:text-5xl">
@@ -242,7 +259,6 @@ export default function Landing({ lang }: { lang: Lang }) {
 
         <div className="mt-10">
           <CardFan
-            ambient
             cards={SECTIONS.map((name, i) => ({
               imgUrl: `/photos/${name}.webp`,
               label: t.sectionLabels[i],
