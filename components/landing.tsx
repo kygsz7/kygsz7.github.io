@@ -128,7 +128,8 @@ export default function Landing({ lang }: { lang: Lang }) {
           className="pointer-events-none absolute inset-0 -z-10"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 40%, rgba(26,26,31,0.85) 0%, rgba(26,26,31,0.45) 45%, #1a1a1f 100%)",
+              "radial-gradient(ellipse at 30% 40%, color-mix(in srgb, var(--background) 85%, transparent) 0%,"
+              + " color-mix(in srgb, var(--background) 45%, transparent) 45%, var(--background) 100%)",
           }}
         />
 
@@ -235,14 +236,15 @@ export default function Landing({ lang }: { lang: Lang }) {
             cellSize 3 ile fotograf neredeyse tam parlaklikta ciziliyor, ustundeki
             baslik okunmaz oluyordu. Arka plan olarak calismasi icin:
             - cellSize 3 -> 12: bu olcekte 3px hucre piksel gibi gorunmuyordu
-            - bgOpacity 90 -> 26 ve brightness 12 -> -18: metin kontrasti icin
+            - bgOpacity 90 -> 20 ve brightness 12 -> 30: krem zeminde mozaik
+              filigran gibi kalsin, ustundeki metni bogmasin
             Dalga, bloom ve vignette tariftekiyle ayni. */}
         <AsciiPixelBackground
           src="/photos/side-muze-lahit.webp"
           cellSize={12}
-          bgOpacity={26}
-          brightness={-18}
-          contrast={130}
+          bgOpacity={20}
+          brightness={30}
+          contrast={108}
           className="pointer-events-none absolute inset-0 -z-10 h-full w-full"
         />
 

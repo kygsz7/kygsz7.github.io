@@ -61,6 +61,14 @@ export default function AsciiPixelBackground({
       getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
     const bg = bgColor ?? cssVar("--background", "#1a1a1f");
 
+    // Vinyet siyaha degil zemine karissin (acik temada siyah halka kalirdi).
+    // Kanvas fillStyle'i her renk formatini #rrggbb'ye normalize eder.
+    ctx.fillStyle = bg;
+    const m = /^#([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(String(ctx.fillStyle));
+    const bgRgb = m
+      ? `${parseInt(m[1], 16)},${parseInt(m[2], 16)},${parseInt(m[3], 16)}`
+      : "0,0,0";
+
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const moving = animated && !reduced;
 
@@ -163,8 +171,8 @@ export default function AsciiPixelBackground({
           w / 2, h / 2, Math.max(w, h) * 0.72
         );
         const a = vignette.intensity / 100;
-        g.addColorStop(0, "rgba(0,0,0,0)");
-        g.addColorStop(1, `rgba(0,0,0,${a})`);
+        g.addColorStop(0, `rgba(${bgRgb},0)`);
+        g.addColorStop(1, `rgba(${bgRgb},${a})`);
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, w, h);
       }

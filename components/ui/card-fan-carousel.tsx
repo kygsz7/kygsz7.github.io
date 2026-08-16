@@ -288,7 +288,8 @@ export default function SocialCards({ cards, ambient = false }: SocialCardsProps
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(ellipse at 50% 45%, transparent 0%, rgba(26,26,31,0.55) 55%, #1a1a1f 88%)",
+                "radial-gradient(ellipse at 50% 45%, transparent 0%,"
+                + " color-mix(in srgb, var(--background) 55%, transparent) 55%, var(--background) 88%)",
             }}
           />
         </div>
@@ -307,7 +308,10 @@ export default function SocialCards({ cards, ambient = false }: SocialCardsProps
                     <div
                       aria-hidden
                       className="absolute inset-x-0 bottom-0 z-20 h-2/5"
-                      style={{ background: "linear-gradient(to top, rgba(12,12,16,0.92), transparent)" }}
+                      style={{
+                        background:
+                          "linear-gradient(to top, color-mix(in srgb, var(--background) 92%, transparent), transparent)",
+                      }}
                     />
                     <span className="absolute inset-x-0 bottom-0 z-30 px-4 pb-4 font-serif text-lg leading-tight text-foreground">
                       {card.label}
